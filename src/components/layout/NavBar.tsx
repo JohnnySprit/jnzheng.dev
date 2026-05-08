@@ -13,15 +13,8 @@ const LINKS = [
 export function Navbar() {
     return (
         <>
-            <nav className="fixed left-1/2 top-[12px] z-50 -translate-x-1/2 items-center rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] shadow-[0_2px_16px_var(--shadow-light)] backdrop-blur-[10px]">
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "28px",
-                        padding: "4px 24px",
-                    }}
-                >
+            <nav className="fixed left-1/2 top-3 z-50 -translate-x-1/2 rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] shadow-[0_2px_16px_var(--shadow-light)] backdrop-blur-[10px]">
+                <div className="flex items-center gap-7 px-6 py-1">
                     {LINKS.map((link) => (
                         <Link
                             key={link.href}
@@ -34,9 +27,7 @@ export function Navbar() {
                 </div>
             </nav>
 
-            <div
-                style={{ position: "fixed", top: "18px", right: "18px" }}
-            >
+            <div className="fixed right-[18px] top-[18px] z-50">
                 <ThemeToggle />
             </div>
         </>
