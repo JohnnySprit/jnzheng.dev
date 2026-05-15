@@ -7,13 +7,12 @@ const LINKS = [
     { href: "#about", label: "about" },
     { href: "#skills", label: "skills" },
     { href: "#projects", label: "projects" },
-    { href: "#interests", label: "interests" },
 ];
 
 export function Navbar() {
     return (
         <>
-            <nav className="fixed left-1/2 top-3 z-50 -translate-x-1/2 rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] shadow-[0_2px_16px_var(--shadow-light)] backdrop-blur-[10px]">
+            <nav className="fixed left-1/2 top-4 z-50 -translate-x-1/2 rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] shadow-[0_2px_16px_var(--shadow-light)] backdrop-blur-[10px]">
                 <div className="flex items-center gap-7 px-6 py-1">
                     {LINKS.map((link) => (
                         <Link
