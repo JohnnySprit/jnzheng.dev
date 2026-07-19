@@ -29,7 +29,7 @@
   }
 
   body {
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-display), var(--font-body), sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
