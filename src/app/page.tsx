@@ -81,8 +81,8 @@ const PROJECTS = [
   },
 ];
 
-const sectionClass = "mx-auto max-w-4xl scroll-mt-24 px-6 py-24";
-const headingClass = "mb-6 text-3xl font-semibold";
+const sectionClass = "mx-auto max-w-4xl scroll-mt-28 px-4 py-16 sm:px-6 sm:py-24";
+const headingClass = "mb-6 text-2xl font-semibold sm:text-3xl";
 
 export default function Home() {
   return (
@@ -90,9 +90,9 @@ export default function Home() {
       <Navbar />
       <Analytics />
 
-      <section className="mx-auto flex min-h-screen max-w-4xl items-center px-6">
+      <section className="mx-auto flex min-h-screen max-w-4xl items-center px-4 sm:px-6">
         <div>
-          <h1 className="text-5xl font-semibold">hi, i&apos;m johnny.</h1>
+          <h1 className="text-4xl font-semibold sm:text-5xl">hi, i&apos;m johnny.</h1>
           <div className="mt-6 flex items-center gap-4">
             <a
               href="https://linkedin.com/in/jnzheng"
@@ -159,10 +159,10 @@ export default function Home() {
           {PROJECTS.map((project) => (
             <article
               key={project.title}
-              className="rounded-xl border border-[var(--border)] bg-[var(--bg-tertiary)] p-8 transition-colors duration-200 hover:border-[var(--accent)]"
+              className="rounded-xl border border-[var(--border)] bg-[var(--bg-tertiary)] p-5 transition-colors duration-200 hover:border-[var(--accent)] sm:p-8"
             >
-              <div className="mb-2 flex items-start justify-between gap-4">
-                <h3 className="text-xl font-medium">{project.title}</h3>
+              <div className="mb-2 flex flex-wrap items-start justify-between gap-2 sm:gap-4">
+                <h3 className="text-lg font-medium sm:text-xl">{project.title}</h3>
                 {project.linkLabel &&
                   (project.external ? (
                     <a
