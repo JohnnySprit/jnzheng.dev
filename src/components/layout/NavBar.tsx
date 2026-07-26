@@ -5,8 +5,10 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const LINKS = [
     { href: "#about", label: "about" },
-    { href: "#skills", label: "skills" },
+    { href: "#experience", label: "experience" },
     { href: "#projects", label: "projects" },
+    { href: "#skills", label: "skills" },
+    { href: "#gear", label: "my gear" },
 ];
 
 export function Navbar() {
