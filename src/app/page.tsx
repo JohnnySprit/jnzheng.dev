@@ -1,11 +1,15 @@
+import Link from "next/link";
 import { Navbar } from "@/components/layout/NavBar";
+import { Analytics } from "@vercel/analytics/next"
 
 const SKILLS = [
   "Java",
+  "C#",
   "Python",
   "SQL",
   "JavaScript",
   "TypeScript",
+  "C",
   "HTML",
   "CSS",
   "Spring Boot",
@@ -20,6 +24,20 @@ const SKILLS = [
   "Vite",
   "Postman",
   "Figma",
+  "OpenAI",
+  "Motion",
+  "Prisma",
+  "Supabase",
+  "Vercel",
+  "Claude Code",
+  "Cursor",
+  "VS Code",
+  "IntelliJ IDEA",
+  "Slack",
+  "Teams",
+  "Azure DevOps",
+  "Azure",
+  "Git",
 ];
 
 const PROJECTS = [
@@ -29,15 +47,17 @@ const PROJECTS = [
       "My personal website and developer portfolio",
     tech: ["Next.js", "TypeScript", "Tailwind"],
     linkLabel: "live site",
-    link: "https://johnnyzheng.com",  
+    link: "https://jnzheng.dev",
+    external: false,
   },
   {
     title: "Replayd",
     description:
       "AI League of Legends post-match coaching tool",
-    tech: ["Next.js", "TypeScript", "Tailwind", "OpenAI API", "Motion"],
+    tech: ["Next.js", "TypeScript", "Tailwind", "OpenAI", "Motion", "Riot Games API", "PostgreSQL", "Prisma"],
     linkLabel: "live site",
-    link: "https://replayd-ruby.vercel.app/",
+    link: "https://replaydcoach.vercel.app/",
+    external: true,
   },
   {
     title: "more stuff to be added",
@@ -45,6 +65,8 @@ const PROJECTS = [
       "",
     tech: [],
     linkLabel: "",
+    link: "",
+    external: false,
   },
 ];
 
@@ -52,7 +74,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-
+      <Analytics />
       <section className="mx-auto flex min-h-screen max-w-5xl items-center px-6">
         <div className="max-w-3xl">
           <h1 className="text-5xl font-semibold">
@@ -61,6 +83,8 @@ export default function Home() {
           <div className="mt-6 flex items-center gap-4">
             <a
               href="https://linkedin.com/in/jnzheng"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="text-[var(--text-secondary)] transition-colors duration-200 hover:text-[var(--accent)]"
             >
@@ -70,6 +94,8 @@ export default function Home() {
             </a>
             <a
               href="https://github.com/JohnnySprit"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="GitHub"
               className="text-[var(--text-secondary)] transition-colors duration-200 hover:text-[var(--accent)]"
             >
@@ -121,9 +147,25 @@ export default function Home() {
             >
               <div className="mb-2 flex items-start justify-between gap-4">
                 <h3 className="text-xl font-medium">{project.title}</h3>
-                <span className="rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)]">
-                  <a href={project.link}>{project.linkLabel}</a>
-                </span>
+                {project.linkLabel && (
+                  project.external ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)]"
+                    >
+                      {project.linkLabel}
+                    </a>
+                  ) : (
+                    <Link
+                      href={project.link}
+                      className="rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)]"
+                    >
+                      {project.linkLabel}
+                    </Link>
+                  )
+                )}
               </div>
               <p className="mb-4 text-[var(--text-secondary)]">{project.description}</p>
               <div className="flex flex-wrap gap-2">
