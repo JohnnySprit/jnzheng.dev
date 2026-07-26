@@ -10,6 +10,7 @@
     --text-secondary: #666666;
     --text-muted: #999999;
     --accent: #177541;
+    --accent-muted: #0e5f33;
     --border: #e8e5e0;
     --shadow-light: rgba(0, 0, 0, 0.05);
     --shadow-medium: rgba(0, 0, 0, 0.1);
@@ -23,6 +24,7 @@
     --text-secondary: #cccccc;
     --text-muted: #888888;
     --accent: #177541;
+    --accent-muted: #0e5f33;
     --border: #404040;
     --shadow-light: rgba(0, 0, 0, 0.2);
     --shadow-medium: rgba(0, 0, 0, 0.3);
