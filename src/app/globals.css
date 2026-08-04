@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   scroll-behavior: smooth;
 }
@@ -34,6 +36,14 @@ html {
     --shadow-medium: rgba(0, 0, 0, 0.3);
   }
 
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
     font-family: var(--font-display), serif;
     background-color: var(--bg-primary);
@@ -41,7 +51,6 @@ html {
     line-height: 1.6;
     font-size: 14px;
     font-weight: 400;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   .scrollbar-none {
