@@ -92,7 +92,7 @@ export default function Home() {
 
       <section className="mx-auto flex min-h-screen max-w-4xl items-center px-4 sm:px-6">
         <div>
-          <h1 className="text-4xl font-semibold sm:text-5xl">hi, i&apos;m johnny.</h1>
+          <h1 className="text-4xl d sm:text-5xl">hi there, i&apos;m johnny.</h1>
           <div className="mt-6 flex items-center gap-4">
             <a
               href="https://linkedin.com/in/jnzheng"
@@ -214,10 +214,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gear" className={sectionClass}>
-        <h2 className={headingClass}>my gear</h2>
+      <section id="interests" className={sectionClass}>
+        <h2 className={headingClass}>interests</h2>
         <p className="text-[var(--text-muted)]">
-          Things I love to use.
+          interests.
         </p>
       </section>
     </main>
