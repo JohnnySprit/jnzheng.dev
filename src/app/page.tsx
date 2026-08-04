@@ -1,87 +1,10 @@
 import Link from "next/link";
 import { Navbar } from "@/components/layout/NavBar";
 import { Analytics } from "@vercel/analytics/next";
+import { PROJECTS } from "@/data/projects";
+import { SKILLS } from "@/data/skills";
 
-const SKILLS = [
-  "Java",
-  "C#",
-  "Python",
-  "SQL",
-  "JavaScript",
-  "TypeScript",
-  "C",
-  "HTML",
-  "CSS",
-  "Spring Boot",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Bootstrap",
-  "Node.js",
-  "PostgreSQL",
-  "GitHub",
-  "Docker",
-  "Vite",
-  "Postman",
-  "Figma",
-  "OpenAI",
-  "Motion",
-  "Prisma",
-  "Supabase",
-  "Vercel",
-  "Claude Code",
-  "Cursor",
-  "VS Code",
-  "IntelliJ IDEA",
-  "Slack",
-  "Teams",
-  "Azure DevOps",
-  "Azure",
-  "Git",
-];
-
-const PROJECTS = [
-  {
-    title: "Portfolio Website",
-    description:
-      "My personal space to showcase my development as a software engineer and my personal interests.",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-    linkLabel: "live site",
-    link: "https://jnzheng.dev",
-    external: false,
-  },
-  {
-    title: "Replayd",
-    description:
-      "Full-stack AI League of Legends coaching tool integrating the Riot Games API and GPT-4o to generate personalized post-match coaching reports from real timeline event data. " +
-      "Implements report caching with PostgreSQL hosted via Supabase and Prisma to minimize API costs on repeat requests.",
-    tech: ["Next.js", "TypeScript", "Tailwind", "OpenAI", "Motion", "Riot Games API", "PostgreSQL", "Prisma"],
-    linkLabel: "live site",
-    link: "https://replaydcoach.vercel.app/",
-    external: true,
-  },
-  {
-    title: "PokerEngine",
-    description:
-      "Evaluating multiple AI approaches for Heads-Up No-Limit Texas Hold'em. Implements a custom PokerKit environment and generates analysis plots for each approach in order to compare their performance.",
-    tech: ["Python", "Matplotlib", "NumPy", "PokerKit", "openCFR"],
-    linkLabel: "github",
-    link: "https://github.com/JohnnySprit/PokerEngine",
-    external: true,
-  },
-  {
-    title: "Frag Archive",
-    description:
-      "Web App/API for managing professional Counter-Strike players. Implements a custom database schema and API endpoints for managing players, matches, and stats. " +
-      "The first personal project that gave me combined exposure to full-stack development, databases, and API development.",
-    tech: ["React", "Bootstrap", "Java", "Spring Boot", "PostgreSQL", "Docker"],
-    linkLabel: "github",
-    link: "https://github.com/JohnnySprit/Frag-Archive",
-    external: true,
-  },
-];
-
-const sectionClass = "mx-auto max-w-4xl scroll-mt-28 px-4 py-16 sm:px-6 sm:py-24";
+const sectionClass = "mx-auto max-w-[720px] px-4 py-16 sm:px-6 sm:py-24";
 const headingClass = "mb-6 text-2xl font-semibold sm:text-3xl";
 
 export default function Home() {
@@ -90,16 +13,16 @@ export default function Home() {
       <Navbar />
       <Analytics />
 
-      <section className="mx-auto flex min-h-screen max-w-4xl items-center px-4 sm:px-6">
+      <section className="mx-auto flex min-h-screen max-w-[720px] items-center justify-center px-4 sm:px-6">
         <div>
-          <h1 className="text-4xl d sm:text-5xl">hi there, i&apos;m johnny.</h1>
-          <div className="mt-6 flex items-center gap-4">
+          <h1 className="text-4xl sm:text-5xl">hi there, i&apos;m johnny.</h1>
+          <div className="mt-6 flex items-center gap-4 justify-center">
             <a
               href="https://linkedin.com/in/jnzheng"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-[var(--text-secondary)] transition-colors duration-200 hover:text-[var(--accent)]"
+              className="text-[var(--text-secondary)] transition-colors duration-200 hover:opacity-60"
             >
               <svg width="25" height="25" fill="currentColor">
                 <path
@@ -113,7 +36,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-[var(--text-secondary)] transition-colors duration-200 hover:text-[var(--accent)]"
+              className="text-[var(--text-secondary)] transition-colors duration-200 hover:opacity-60"
             >
               <svg width="25" height="25" fill="currentColor">
                 <path
@@ -126,7 +49,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className={sectionClass}>
+      <section className={sectionClass}>
         <h2 className={headingClass}>about</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <p className="text-[var(--text-secondary)]">
@@ -146,10 +69,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className={sectionClass}>
-        <h2 className={headingClass}>experience</h2>
+      <section id="work" className={sectionClass}>
+        <h2 className={headingClass}>work</h2>
         <p className="text-[var(--text-muted)]">
-          Internships and research.
+          work.
         </p>
       </section>
 
@@ -159,7 +82,7 @@ export default function Home() {
           {PROJECTS.map((project) => (
             <article
               key={project.title}
-              className="rounded-xl border border-[var(--border)] bg-[var(--bg-tertiary)] p-5 transition-colors duration-200 hover:border-[var(--accent)] sm:p-8"
+              className="rounded-xl border border-[var(--border)] bg-[var(--bg-tertiary)] p-5 transition-colors duration-200 hover:opacity-80 sm:p-8"
             >
               <div className="mb-2 flex flex-wrap items-start justify-between gap-2 sm:gap-4">
                 <h3 className="text-lg font-medium sm:text-xl">{project.title}</h3>
@@ -169,14 +92,14 @@ export default function Home() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent-muted)]"
+                      className="shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)] transition-colors duration-200 hover:opacity-60"
                     >
                       {project.linkLabel}
                     </a>
                   ) : (
                     <Link
                       href={project.link}
-                      className="shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent-muted)]"
+                      className="shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)] transition-colors duration-200 hover:opacity-60"
                     >
                       {project.linkLabel}
                     </Link>
@@ -189,7 +112,7 @@ export default function Home() {
                 {project.tech.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-md border border-[var(--border)] bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-secondary)]"
+                    className="rounded-md border border-[var(--border)] bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-secondary)] hover:opacity-60"
                   >
                     {tag}
                   </span>
@@ -200,13 +123,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className={sectionClass}>
+      <section className={sectionClass}>
         <h2 className={headingClass}>skills</h2>
         <div className="flex flex-wrap gap-3">
           {SKILLS.map((skill) => (
             <span
               key={skill}
-              className="rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] px-3 py-1 text-sm transition-colors duration-200 hover:border-[var(--accent)]"
+              className="rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] px-3 py-1 text-sm transition-colors duration-200 hover:opacity-60"
             >
               {skill}
             </span>

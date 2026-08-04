@@ -21,9 +21,9 @@ html {
   }
 
   .dark {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #242424;
-    --bg-tertiary: #2a2a2a;
+    --bg-primary: #272727;
+    --bg-secondary: #363636;
+    --bg-tertiary: #303030;
     --text-primary: #ffffff;
     --text-secondary: #cccccc;
     --text-muted: #888888;
