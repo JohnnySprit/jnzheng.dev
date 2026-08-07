@@ -61,4 +61,13 @@ html {
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+
+  .font-tinos {
+    font-family: var(--font-display), serif;
+  }
+
+  .iu {
+    @apply px-1 py-0.5 transition-all duration-200;
+    background-color: #990000;
+  }
 }
