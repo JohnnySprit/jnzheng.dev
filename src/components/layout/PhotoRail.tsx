@@ -1,7 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { PHOTOS } from "@/data/photos";
 
+function rotateFromRandomStart<T>(items: T[]): T[] {
+  if (items.length <= 1) return items;
+  const start = Math.floor(Math.random() * items.length);
+  return [...items.slice(start), ...items.slice(0, start)];
+}
+
 export function PhotoRail() {
-  if (PHOTOS.length === 0) return null;
+  const [shots, setShots] = useState(PHOTOS);
+
+  useEffect(() => {
+    setShots(rotateFromRandomStart(PHOTOS));
+  }, []);
+
+  if (shots.length === 0) return null;
+
+  const loop = [...shots, ...shots];
 
   return (
     <aside
@@ -13,7 +30,7 @@ export function PhotoRail() {
       }}
     >
       <div className="photo-rail-track flex flex-col gap-3">
-        {[...PHOTOS].map((shot, i) => (
+        {loop.map((shot, i) => (
           <img
             key={`${shot.src}-${i}`}
             src={shot.src}
