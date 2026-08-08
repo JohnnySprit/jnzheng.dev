@@ -67,7 +67,7 @@ html {
   }
 
   .iu {
-    @apply px-1 py-0.5 transition-all duration-200;
+    @apply px-1 py-0.5 transition-all duration-200 hover:saturate-125;
     background-color: #990000;
   }
 }

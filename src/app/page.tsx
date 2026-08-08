@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/NavBar";
 import { Analytics } from "@vercel/analytics/next";
 import { PROJECTS } from "@/data/projects";
-import { SKILLS } from "@/data/skills";
+import { WORK } from "@/data/work";
 
 const sectionClass = "py-12 sm:py-16";
 const headingClass = "mb-6 text-2xl font-semibold sm:text-3xl";
@@ -16,7 +16,11 @@ export default function Home() {
         <div className="min-w-0 text-base leading-relaxed">
 
           <div className="mb-6 flex items-center justify-between">
-            <h1 className="text-3xl font-bold hover:opacity-60">johnny zheng</h1>
+            <div className="relative inline-block">
+              <h1 className="relative text-4xl italic font-bold hover:opacity-90 text-[var(--name-color)] hover:not-italic">
+                johnny zheng
+              </h1>
+            </div>
             <div className="flex items-center gap-4">
               <a
                 href="https://linkedin.com/in/jnzheng"
@@ -51,91 +55,85 @@ export default function Home() {
 
 
           <div className="grid gap-6 max-w-[720px]">
-            <h2>i'm a student at <span className="iu">indiana university</span></h2>
-            <p className="text-[var(--text-secondary)]">
-              Hi, I&apos;m Johnny. I&apos;m a senior computer science student at
-              Indiana University - Bloomington with specializations in Software
-              Engineering and AI. I am also pursuing minors in Data Science and
-              Informatics to further develop my skills in data and software
-              development.
-            </p>
-            <p className="text-[var(--text-secondary)]">
-              When not working on new projects or studying, I love to boulder at
-              Hoosier Heights, listen to music, play video games, and check out
-              consumer electronics. I have also been heavily involved in music and
-              the marching arts, performing with groups such as the Boston
-              Crusaders, the Cavaliers, and the Memphis Youth Symphony Program.
-            </p>
+            <h2>i'm a senior CS student at &nbsp;
+              <a className="iu text-xl hover:saturate-125" href="https://luddy.iu.edu/index.html" target="_blank" rel="noopener noreferrer" aria-label="Indiana University - Bloomington">
+                indiana university - bloomington
+              </a>
+            </h2>
+            <div>
+              <p className="font-bold text-sm">some cool things about me:</p>
+              <ul className="list-disc pl-4 text-sm leading-relaxed marker:text-[8px]">
+                <li>
+                  <p>specializing in software engineering and ai, minors in data science and informatics</p>
+                </li>
+                <li>
+                  <p>performed with the boston crusaders, the cavaliers, and the memphis youth symphony</p>
+                </li>
+                <li>
+                  <p>always looking out for cool consumer electronics</p>
+                </li>
+                <li>
+                  <p>i love aim training and fps games</p>
+                </li>
+              </ul>
+            </div>
           </div>
+
 
           <section id="work" className={sectionClass}>
             <h2 className={headingClass}>work</h2>
-            <p className="text-[var(--text-muted)]">
-              work.
-            </p>
-          </section>
+            <div className="space-y-0">
+              {WORK.map((work) => (
+                <article
+                  key={work.title}
+                  className="group border-l-1 border-transparent pl-4 py-4 transition-colors hover:border-[var(--text-primary)]"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg text-[var(--text-primary)]">
+                      {work.title}
+                    </h3>
+                    <span className="shrink-0 text-xs text-[var(--text-muted)]">
+                      {work.startDate} - {work.endDate}
+                    </span>
+                  </div>
+                  <p className="mt-1 max-w-xl text-sm text-[var(--text-secondary)]">
+                    {work.company}
+                  </p>
+                  <p className="mt-2 text-xs text-[var(--text-muted)]">
+                    {work.location}
+                  </p>
+                </article>
+              ))}
+            </div>
 
+          </section>
           <section id="projects" className={sectionClass}>
             <h2 className={headingClass}>projects</h2>
-            <div className="space-y-5">
+            <div className="space-y-0">
               {PROJECTS.map((project) => (
                 <article
                   key={project.title}
-                  className="rounded-xl border border-[var(--border)] bg-[var(--bg-tertiary)] p-5 transition-colors duration-200 hover:opacity-80 sm:p-8"
+                  className="group border-l-1 border-transparent py-4 pl-4 transition-colors hover:border-[var(--text-primary)]"
                 >
-                  <div className="mb-2 flex flex-wrap items-start justify-between gap-2 sm:gap-4">
-                    <h3 className="text-lg font-medium sm:text-xl">{project.title}</h3>
-                    {project.linkLabel &&
-                      (project.external ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)] transition-colors duration-200 hover:opacity-60"
-                        >
-                          {project.linkLabel}
-                        </a>
-                      ) : (
-                        <Link
-                          href={project.link}
-                          className="shrink-0 rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)] transition-colors duration-200 hover:opacity-60"
-                        >
-                          {project.linkLabel}
-                        </Link>
-                      ))}
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg text-[var(--text-primary)]">
+                      {project.title}
+                    </h3>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+                      {project.linkLabel} →
+                    </a>
                   </div>
-                  <p className="mb-4 text-[var(--text-secondary)]">
+                  <p className="mt-1 text-sm text-[var(--text-secondary)] max-w-[520px]">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-md border border-[var(--border)] bg-[var(--bg-secondary)] px-2 py-1 text-xs text-[var(--text-secondary)] hover:opacity-60"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+
+                  <p className="mt-2 text-xs text-[var(--text-muted)]">
+                    {project.tech.join(", ")}
+                  </p>
                 </article>
               ))}
             </div>
           </section>
-
-          <section className={sectionClass}>
-            <h2 className={headingClass}>skills</h2>
-            <div className="flex flex-wrap gap-3">
-              {SKILLS.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-[var(--border)] bg-[var(--bg-tertiary)] px-3 py-1 text-sm transition-colors duration-200 hover:opacity-60"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </section>
-
           <section id="interests" className={sectionClass}>
             <h2 className={headingClass}>interests</h2>
             <p className="text-[var(--text-muted)]">

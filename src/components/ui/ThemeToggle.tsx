@@ -12,7 +12,7 @@ export function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="inline-flex items-center justify-center transition-colors duration-200 hover:opacity-60 active:text-[var(--accent)] cursor-pointer"
+            className="inline-flex items-center justify-center transition-colors duration-200 hover:text-[var(--text-primary)] active:text-[var(--accent)] cursor-pointer"
             aria-label="Toggle theme"
         >
             <span className="relative inline-grid text-lg leading-none">
