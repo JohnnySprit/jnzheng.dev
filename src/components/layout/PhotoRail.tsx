@@ -1,24 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { PHOTOS } from "@/data/photos";
 
-function rotateFromRandomStart<T>(items: T[]): T[] {
-  if (items.length <= 1) return items;
-  const start = Math.floor(Math.random() * items.length);
-  return [...items.slice(start), ...items.slice(0, start)];
-}
-
 export function PhotoRail() {
-  const [shots, setShots] = useState(PHOTOS);
-
-  useEffect(() => {
-    setShots(rotateFromRandomStart(PHOTOS));
-  }, []);
-
-  if (shots.length === 0) return null;
-
-  const loop = [...shots, ...shots];
+  if (PHOTOS.length === 0) return null;
 
   return (
     <aside
@@ -29,14 +12,18 @@ export function PhotoRail() {
           "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
       }}
     >
-      <div className="photo-rail-track flex flex-col gap-3">
-        {loop.map((shot, i) => (
-          <img
-            key={`${shot.src}-${i}`}
-            src={shot.src}
-            alt=""
-            className="w-full h-full shrink-0 object-cover bg-[var(--bg-secondary)]"
-          />
+      <div className="photo-rail-track">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex flex-col gap-3 pb-3">
+            {PHOTOS.map((shot) => (
+              <img
+                key={`${copy}-${shot.src}`}
+                src={shot.src}
+                alt=""
+                className="aspect-[3/4] w-full shrink-0 object-cover bg-[var(--bg-secondary)]"
+              />
+            ))}
+          </div>
         ))}
       </div>
     </aside>
