@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Navbar } from "@/components/layout/NavBar";
+import { PhotoRail } from "@/components/layout/PhotoRail";
 import { Analytics } from "@vercel/analytics/next";
 import { PROJECTS } from "@/data/projects";
 import { WORK } from "@/data/work";
+import { INTERESTS } from "@/data/interests";
 
 const sectionClass = "py-12 sm:py-16";
 const headingClass = "mb-6 text-2xl font-semibold sm:text-3xl";
@@ -11,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6">
       <Analytics />
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-[120px_1fr_120px] md:gap-12">
+      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-[120px_1fr_220px] md:gap-12">
         <Navbar />
         <div className="min-w-0 text-base leading-relaxed">
 
@@ -82,7 +84,7 @@ export default function Home() {
 
           <section id="work" className={sectionClass}>
             <h2 className={headingClass}>work</h2>
-            <div className="space-y-0">
+            <div>
               {WORK.map((work) => (
                 <article
                   key={work.title}
@@ -109,7 +111,7 @@ export default function Home() {
           </section>
           <section id="projects" className={sectionClass}>
             <h2 className={headingClass}>projects</h2>
-            <div className="space-y-0">
+            <div>
               {PROJECTS.map((project) => (
                 <article
                   key={project.title}
@@ -136,11 +138,12 @@ export default function Home() {
           </section>
           <section id="interests" className={sectionClass}>
             <h2 className={headingClass}>interests</h2>
-            <p className="text-[var(--text-muted)]">
+            <p className="text-sm text-[var(--text-secondary)]">
               interests.
             </p>
           </section>
         </div>
+        <PhotoRail />
       </div>
     </main>
   );

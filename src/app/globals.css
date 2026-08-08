@@ -70,4 +70,17 @@ html {
     @apply px-1 py-0.5 transition-all duration-200 hover:saturate-125;
     background-color: #990000;
   }
+
+  @keyframes marquee-y {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+
+  .photo-rail-track {
+    animation: marquee-y 30s linear infinite;
+  }
 }
