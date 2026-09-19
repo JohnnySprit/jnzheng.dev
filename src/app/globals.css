@@ -92,4 +92,8 @@ html {
   .photo-rail-track {
     animation: marquee-y 45s linear infinite;
   }
+
+  aside:hover .photo-rail-track {
+    animation-play-state: paused;
+  }
 }

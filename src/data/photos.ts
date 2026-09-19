@@ -1,5 +1,8 @@
 export const PHOTOS = [
     { src: "/photos/memeiHashbrown.jpg" },
+    { src: "/photos/desksetup.jpg" },
+    { src: "/photos/lakemonroe.jpeg" },
+    { src: "/photos/monkeyjapan.jpg" },
     { src: "/photos/cavaliers24Margaritaville.jpg"},
     { src: "/photos/iufb.jpg"},
     { src: "/photos/tennessee.jpg"},

@@ -1,3 +1,5 @@
+"use client";
+
 import { PHOTOS } from "@/data/photos";
 
 export function PhotoRail() {
@@ -5,8 +7,13 @@ export function PhotoRail() {
 
   return (
     <aside
-      className="hidden md:block sticky top-12 h-[calc(100vh-6rem)] self-start overflow-hidden"
+      className="hidden md:block sticky top-12 h-[calc(100vh-6rem)] self-start overflow-y-auto scrollbar-none"
       aria-hidden
+      onScroll={(e) => {
+        const el = e.currentTarget;
+        const half = el.scrollHeight / 2;
+        if (el.scrollTop >= half) el.scrollTop -= half;
+      }}
       style={{
         maskImage:
           "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
