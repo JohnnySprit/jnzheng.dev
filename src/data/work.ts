@@ -4,13 +4,7 @@ export const WORK = [
         company: "New Arc Solutions",
         location: "Indianapolis, IN",
         startDate: "June 2026",
-        endDate: "August 2026"
-    },
-    {
-        title: "Undergraduate Researcher",
-        company: "Indiana University",
-        location: "Bloomington, IN",
-        startDate: "September 2025",
-        endDate: "December 2025"
-    },
+        endDate: "August 2026",
+        description: "developed internal tooling to support consultants"
+    }
 ];

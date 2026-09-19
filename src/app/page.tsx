@@ -6,6 +6,7 @@ import { INTRO_NAME, useIntro } from "@/components/intro/useIntro";
 import { Analytics } from "@vercel/analytics/next";
 import { PROJECTS } from "@/data/projects";
 import { WORK } from "@/data/work";
+import { RESEARCH } from "@/data/research"
 import { COLLECTIONS } from "@/data/collections";
 import { motion } from "framer-motion";
 
@@ -116,10 +117,10 @@ export default function Home() {
                   <p>performed with the boston crusaders, the cavaliers, and the memphis youth symphony</p>
                 </li>
                 <li>
-                  <p>always looking out for cool consumer electronics</p>
+                  <p>i love aim training and fps games (Immortal in Valorant, Level 10 in Counter-Strike)</p>
                 </li>
                 <li>
-                  <p>i love aim training and fps games</p>
+                  <p>always looking out for cool consumer electronics</p>
                 </li>
               </ul>
             </div>
@@ -142,17 +143,44 @@ export default function Home() {
                       {work.startDate} - {work.endDate}
                     </span>
                   </div>
-                  <p className="mt-1 max-w-xl text-sm text-[var(--text-secondary)]">
-                    {work.company}
+                  <p className="mt-1 max-w-xl text-xs text-[var(--text-muted)]">
+                    {work.company} -- {work.location}
                   </p>
-                  <p className="mt-2 text-xs text-[var(--text-muted)]">
-                    {work.location}
+                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                    {work.description}
                   </p>
                 </article>
               ))}
             </div>
 
+
           </section>
+          <section id="research" className={sectionClass}>
+              <h2 className={headingClass}>research</h2>
+              <div>
+                {RESEARCH.map((research) => (
+                  <article key={research.title}
+                    className="group border-l-1 border-transparent pl-4 py-4 transition-colors hover:border-[var(--text-primary)]"
+                  >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-lg text-[var(--text-primary)]">
+                      {research.title}
+                    </h3>
+                    <span className="shrink-0 text-xs text-[var(--text-muted)]">
+                      {research.startDate} - {research.endDate}
+                    </span>
+                  </div>
+                  <p className="mt-1 max-w-xl text-xs text-[var(--text-muted)]">
+                    {research.company} -- {research.location}
+                  </p>
+                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                    {research.description}
+                  </p>
+                </article>
+                ))}
+              </div>
+          </section>
+
           <section id="projects" className={sectionClass}>
             <h2 className={headingClass}>projects</h2>
             <div>
