@@ -1,16 +1,56 @@
+"use client";
+
 import { Navbar } from "@/components/layout/NavBar";
 import { PhotoRail } from "@/components/layout/PhotoRail";
+import { INTRO_NAME, useIntro } from "@/components/intro/useIntro";
 import { Analytics } from "@vercel/analytics/next";
 import { PROJECTS } from "@/data/projects";
 import { WORK } from "@/data/work";
 import { COLLECTIONS } from "@/data/collections";
+import { motion } from "framer-motion";
 
 const sectionClass = "py-12 sm:py-16";
 const headingClass = "mb-6 text-2xl font-semibold sm:text-3xl";
+const nameClassName =
+  "relative text-4xl italic font-bold text-[var(--name-color)] hover:opacity-80 hover:not-italic";
 
 export default function Home() {
+  const { typed, ready, showIntro, fading, showTypedName, finishFade } =
+    useIntro();
+
   return (
-    <main className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6">
+    <>
+      {showIntro && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--bg-primary)]"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: fading ? 0 : 1 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          onAnimationComplete={() => {
+            if (fading) finishFade();
+          }}
+        >
+          {showTypedName && (
+            // helps grow from left to right
+            <h1 className="relative whitespace-nowrap text-4xl font-bold not-italic text-[var(--text-primary)]">
+              <span className="invisible" aria-hidden>
+                {INTRO_NAME}
+              </span>
+              <span className="absolute inset-0 whitespace-nowrap">
+                {typed}
+                <span aria-hidden className="ml-1 animate-pulse">
+                  _
+                </span>
+              </span>
+            </h1>
+          )}
+        </motion.div>
+      )}
+
+      <main
+        className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6"
+        aria-hidden={!ready}
+      >
       <Analytics />
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-[120px_1fr_220px] md:gap-12">
         <Navbar />
@@ -18,9 +58,14 @@ export default function Home() {
 
           <div className="mb-6 flex items-center justify-between">
             <div className="relative inline-block">
-              <h1 className="relative text-4xl italic font-bold hover:opacity-80 text-[var(--name-color)] hover:not-italic">
-                johnny zheng
-              </h1>
+              <motion.h1
+                className={nameClassName}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: ready ? 1 : 0 }}
+                transition={{ duration: 0.5, ease: "linear" }}
+              >
+                {INTRO_NAME}
+              </motion.h1>
             </div>
             <div className="flex items-center gap-4">
               <a
@@ -187,5 +232,6 @@ export default function Home() {
         <PhotoRail />
       </div>
     </main>
+    </>
   );
 }
