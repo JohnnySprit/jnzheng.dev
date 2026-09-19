@@ -10,10 +10,9 @@ import { RESEARCH } from "@/data/research"
 import { COLLECTIONS } from "@/data/collections";
 import { motion } from "framer-motion";
 
-const sectionClass = "py-12 sm:py-16";
+const sectionClass = "py-12";
 const headingClass = "mb-6 text-2xl font-semibold sm:text-3xl";
-const nameClassName =
-  "relative text-4xl italic font-bold text-[var(--name-color)] hover:opacity-80 hover:not-italic";
+const nameClassName = "relative text-4xl italic font-bold text-[var(--name-color)] hover:opacity-80 hover:not-italic";
 
 export default function Home() {
   const { typed, ready, showIntro, fading, showTypedName, finishFade } =
@@ -53,7 +52,7 @@ export default function Home() {
         aria-hidden={!ready}
       >
       <Analytics />
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-[120px_1fr_220px] md:gap-12">
+      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-[120px_1fr_220px] md:gap-12">
         <Navbar />
         <div className="min-w-0 text-base leading-relaxed">
 
@@ -81,6 +80,20 @@ export default function Home() {
                     transform="scale(1.5)"
                     d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
                   />
+                </svg>
+              </a>
+              <a
+                href="https://app.joinhandshake.com/profiles/jnzheng"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Handshake"
+                className="text-[var(--text-secondary)] transition-colors duration-200 hover:opacity-60"
+              >
+                <svg width="25" height="25" fill="currentColor">
+                  <path
+                    transform="scale(1.0)"
+                    d="M20.728 0 16.49 24h-4.583l1.87-10.532-4.743 3.893L7.856 24H3.272L7.51 0h4.582L9.806 13.012l4.729-3.862L16.145 0h4.583z"
+                    />
                 </svg>
               </a>
               <a
