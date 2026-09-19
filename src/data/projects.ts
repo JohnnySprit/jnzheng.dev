@@ -1,10 +1,20 @@
 export const PROJECTS = [
     {
+        title: "Meridian",
+        description:
+            "Full-stack portfolio analysis platform combining Alpaca OAuth for live portfolio positions, asset-weighted volatility calculation, and recent news " +
+            "in order to generate informed portfolio briefings. Redis with varied TTL for caching rate-limited data and Postgres for credentials, deployed on AWS EC2",
+        tech: ["Java", "Spring Boot", "PostgreSQL", "Redis", "AWS", "Docker", "Alpaca", "Next.js", "TypeScript", "TailwindCSS", "OpenAI"],
+        linkLabel: "live site",
+        link: "https://meridian-risk.xyz/",
+        external: true,
+    },
+    {
         title: "Replayd",
         description:
             "Full-stack AI League of Legends coaching tool integrating the Riot Games API and GPT-4o to generate personalized coaching reports from real timeline event data. " +
             "Implements report caching with PostgreSQL hosted via Supabase and Prisma to minimize API costs on repeat requests.",
-        tech: ["Next.js", "TypeScript", "Tailwind", "OpenAI", "Motion", "Riot Games API", "PostgreSQL", "Prisma"],
+        tech: ["Next.js", "TypeScript", "TailwindCSS", "OpenAI", "Motion", "Riot Games API", "PostgreSQL", "Prisma"],
         linkLabel: "live site",
         link: "https://replaydcoach.vercel.app/",
         external: true,
@@ -23,7 +33,7 @@ export const PROJECTS = [
         title: "Portfolio Website",
         description:
             "My personal space to showcase my development as a software engineer and my personal interests.",
-        tech: ["Next.js", "TypeScript", "Tailwind"],
+        tech: ["Next.js", "TypeScript", "TailwindCSS"],
         linkLabel: "live site",
         link: "https://jnzheng.dev",
         external: false,
